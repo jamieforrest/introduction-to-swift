@@ -25,6 +25,10 @@ var array2 = [1,2,3]
 array2[0] = 0
 array2.append(4)
 
+//: Swift lets you use unicode in variable names, if you're crazy
+let 你好 = "你好世界"
+let 🐶🐮 = "dogcow"
+
 //: ## Optionals
 //: Optionals are constants or variables that are allowed to be nil. 
 let optionalConstant1: String? = nil
@@ -63,3 +67,31 @@ case (let .Some(p)): println("m is not nil, and p is : \(p)")
 default: println("m is nil")
 }
 
+//: You can chain optionals together and the behavior is as you would expect (but I wouldn't recommend it)
+class Person {
+    var residence: Residence?
+}
+
+class Residence {
+    var address = Address()
+}
+
+class Address {
+    var city = "London"
+    var state: String?
+    var postalCode = "SW1A 1AA"
+    var country = "UK"
+}
+
+let buckinghamPalace = Residence()
+let elizabeth = Person()
+elizabeth.residence = buckinghamPalace
+elizabeth.residence?.address.postalCode
+elizabeth.residence?.address.state?.debugDescription
+
+//: As of Swift 1.2 you can unwrap multiple optionals in one line:
+if let m = m, let n = n {
+    println("n is nil, so this won't get printed")
+} else {
+    println("either m or n is nil")
+}
