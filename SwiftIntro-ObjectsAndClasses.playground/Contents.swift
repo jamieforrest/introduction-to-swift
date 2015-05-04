@@ -50,6 +50,18 @@ bizarroRick.name = "Bizarro Rick"
 rick.name
 bizarroRick.name
 
+//: Structs are also useful for grouping constants where you don't want to deal with rawValues in enums
+
+struct Category {
+    static let OmNom: UInt32 = 1
+    static let RopeHolder: UInt32 = 2
+    static let Rope: UInt32 = 4
+    static let Prize: UInt32 = 8
+}
+
+let prize = Category.Prize
+prize == 8
+
 //: Note that Arrays, Sets, and Dictionaries in Swift are structs (but copying is via copy on write)
 var arr1 = [1, 2, 3]
 var arr2 = arr1
