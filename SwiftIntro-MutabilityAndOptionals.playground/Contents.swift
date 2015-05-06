@@ -29,6 +29,15 @@ array2.append(4)
 let 你好 = "你好世界"
 let 🐶🐮 = "dogcow"
 
+//: lazy lets you defer initialization for things that need to use other data that might not be available at init time, or for things where the initialization is computationally intensive
+
+class MathConstants {
+    lazy var π: Double = {
+        // some computationally intensive method for comuting π
+        return 3.14159
+        }()
+}
+
 //: ## Optionals
 //: Optionals are constants or variables that are allowed to be nil. 
 let optionalConstant1: String? = nil
