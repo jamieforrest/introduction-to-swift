@@ -71,7 +71,7 @@ if let p = m {
 }
 
 //: You can also use switch-case to do something similar.
-switch (m) {
+switch m {
 case (let .Some(p)): println("m is not nil, and p is : \(p)")
 default: println("m is nil")
 }
